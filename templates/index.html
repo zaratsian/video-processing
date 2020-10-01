@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>GCP App</title>
+
+    <!-- Bootstrap -->
+    <link href="../static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../static/vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../static/build/css/custom.min.css" rel="stylesheet">
+
+    <link href="../static/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+
+
+
+
+
+
+  </head>
+
+  <body class="nav-sm">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="/" class="site_title"><i class="fa fa-cube"></i> <span>GCP Video Intelligence</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+              <div class="menu_section">
+                <h3>Categories</h3>
+                <ul class="nav side-menu">
+                  <li><a href="/"><i class="fa fa-globe"></i> SEARCH </a></li>
+		  <li><a href="/media"><i class="fa fa-video-camera"></i> MEDIA </a></li>
+                  <li><a href="/report"><i class="fa fa-bar-chart"></i>REPORT</a></li>
+	       	</ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <!--
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            -->
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <!--
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                -->
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-user"></i>&nbsp;&nbsp;{{ user }}&nbsp;<span class="fa fa-angle-down"></span>
+                  </a>
+		  <!--
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="/logout">Logout</a></li>
+                  </ul>
+		  -->
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+
+
+
+
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <!-- <h3>ZHeader</h3> -->
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+
+
+
+<!--
+            <form action="/" method="POST">
+
+                <br><br><br><br><br>
+                
+		        <div class="row">
+                    <div class="col-md-3 col-xs-1 "></div>
+                
+                    <div class="col-md-6 col-xs-10 form-group">
+                        
+			            <input name="media_url" type="text" class="form-control" placeholder="Media URL (Youtube)">
+			
+                    </div>
+
+                    <div class="col-md-3 col-xs-1 "></div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-4 col-md-5"></div>
+                    <div class="col-xs-4 col-md-2 form-group">
+                      <center><button type="submit" style="width:100%;" class="btn btn-round btn-primary">Process Youtube</button></center>
+                    </div>
+                    <div class="col-xs-4 col-md-5"></div>
+                </div>
+
+
+            </form>
+-->
+
+
+
+
+<br>
+
+
+
+           <form action="/upload_file" enctype="multipart/form-data" method="POST">
+
+                <br><br>
+
+                <div class="row">
+                    <div class="col-md-4 col-xs-1 "></div>
+                    <div class="col-md-4 col-xs-10 form-group">
+                        <center>
+                            <input type="file" name="video_file" style="width:100%;" class="btn btn-default" accept=".mp4,.mov">
+                        </center>
+		            </div>
+                    <div class="col-md-4 col-xs-1 "></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 col-md-5"></div>
+                    <div class="col-xs-4 col-md-2 form-group">
+                        <center><button type="submit" style="width:100%;" class="btn btn-round btn-primary">Upload Video</button></center>
+                    </div>
+                    <div class="col-xs-4 col-md-5"></div>
+                </div>
+
+            </form>
+
+
+
+
+
+
+	    {% if message != '' %}
+            <br><br>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <center>{{ message }}</center>
+                    <br>
+                    {% if status_code == 200 %}
+                        <center><font color="green"><b>{{ status_code }}</b></font></center>
+                    {% else %}
+                        <center><font color="red"><b>{{ status_code }}</b></font></center>
+                    {% endif %}
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <br><br>
+
+	    {% endif %}
+
+
+
+
+
+
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Z2020
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../static/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../static/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../static/vendors/nprogress/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="../static/build/js/custom.min.js"></script>
+
+
+
+
+
+
+    <script src="../static/vendors/select2/dist/js/select2.full.min.js"></script>
+
+    <!-- Select2 -->
+    <script>
+        $(document).ready(function() {
+          $(".select2_single").select2({
+            placeholder: "Enter an Article URL",
+            allowClear: true
+          });
+          $(".select2_group").select2({});
+          $(".select2_multiple").select2({
+            maximumSelectionLength: 4,
+            placeholder: "With Max Selection limit 4",
+            allowClear: true
+          });
+        });
+      </script>
+      <!-- /Select2 -->
+
+
+
+
+      <script>
+          var d = new Date();
+          document.getElementById("todays_date_js").innerHTML = d.toDateString();
+      </script>
+
+
+
+  </body>
+</html>
